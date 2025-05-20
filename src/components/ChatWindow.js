@@ -147,22 +147,31 @@ function ChatWindow() {
     }
 
     // Inschrijvingsvraag
-    if (question.includes('inschrijven') || question.includes('schrijf') || question.includes('aanmelden')) {
+    if (question.includes('inschrijven') || question.includes('schrijf') || question.includes('aanmelden') || 
+        question.includes('hoe') || question.includes('waar kan ik')) {
+      
+      // Als er een specifiek speelplein wordt genoemd
       const speelpleinMatch = data.find(row => 
         question.toLowerCase().includes(row.Speelplein.toLowerCase())
       );
 
       if (speelpleinMatch) {
         return `Super dat je wil inschrijven voor ${speelpleinMatch.Speelplein}! 🌟\n\n` +
-               `✨ Inschrijven kan op twee manieren:\n` +
-               `1. Direct online via deze link:\n   ${speelpleinMatch.Inschrijvingslink}\n\n` +
-               `2. Of neem contact op met ${speelpleinMatch.Contactpersoon}\n` +
-               `   Zij/hij helpt je graag verder met het inschrijven!\n\n` +
+               `Je kan heel eenvoudig inschrijven door in de kalender te klikken op de datum waarop je wil inschrijven. ` +
+               `Daar vind je de inschrijvingslink! 📅\n\n` +
                `📋 Belangrijke info:\n` +
-               `• Er zijn nog ${speelpleinMatch.Beschikbare_plaatsen} van de ${speelpleinMatch.Max_kinderen} plaatsjes beschikbaar\n` +
-               `• Het speelplein is voor kindjes van ${speelpleinMatch.Leeftijdsgroep}\n\n` +
-               `Lukt het inschrijven? Of heb je nog vragen? Ik help je graag verder! 💫`;
+               `• Er zijn nog ${speelpleinMatch.Beschikbare_plaatsen} plaatsjes beschikbaar\n` +
+               `• Het speelplein is voor kindjes van ${speelpleinMatch.Leeftijdsgroep} jaar\n\n` +
+               `Lukt het niet? Ik help je graag verder! 💫`;
       }
+
+      // Algemene inschrijvingsvraag
+      return `Je kan heel eenvoudig inschrijven voor een speelplein! 🌟\n\n` +
+             `Zo werkt het:\n` +
+             `1. Kijk in de kalender wanneer het speelplein open is 📅\n` +
+             `2. Klik op de datum waarop je wil inschrijven\n` +
+             `3. Je vindt daar direct de inschrijvingslink\n\n` +
+             `Wil je weten welke speelpleinen er zijn? Of heb je andere vragen? Ik help je graag! 😊`;
     }
 
     return botConfig.defaultResponse;
