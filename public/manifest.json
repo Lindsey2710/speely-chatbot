@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Speely",
+  "name": "Speely - Speelplein Assistent",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,10 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#6b7ff2",
+  "background_color": "#ffffff",
+  "description": "Je virtuele assistent voor speelpleinwerking",
+  "orientation": "portrait",
+  "categories": ["education", "kids", "social"],
+  "lang": "nl"
 }

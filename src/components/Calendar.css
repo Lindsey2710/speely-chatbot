@@ -1,0 +1,354 @@
+.calendar-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.calendar-wrapper {
+  padding: 20px;
+}
+
+/* FullCalendar overrides */
+.fc {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.fc .fc-toolbar {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px !important;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.2em !important;
+  color: #333;
+}
+
+.fc .fc-button {
+  background: #6b7ff2 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px 12px !important;
+}
+
+.fc .fc-button:hover {
+  background: #5466d9 !important;
+}
+
+.fc .fc-day {
+  background: white !important;
+}
+
+.fc .fc-day-today {
+  background: #f8f9fa !important;
+}
+
+/* Event styling */
+.calendar-event {
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.event-title {
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.event-details {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* Details panel */
+.speelplein-details {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.details-header {
+  padding: 20px;
+  background: #f8f9ff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.available {
+  background: #e6ffed;
+  color: #0a6c3c;
+}
+
+.status-badge.full {
+  background: #ffe6e6;
+  color: #c91d1d;
+}
+
+.details-content {
+  padding: 20px;
+}
+
+.info-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-label {
+  color: #666;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.details-actions {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.inschrijven-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #6b7ff2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.inschrijven-button:hover {
+  background: #5a6cd9;
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .calendar-container {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-speelpleinen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .calendar-wrapper {
+    padding: 10px;
+  }
+
+  /* FullCalendar mobiele aanpassingen */
+  .fc .fc-toolbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.1em !important;
+    text-align: center;
+  }
+
+  .fc .fc-button {
+    padding: 6px 10px !important;
+    font-size: 0.9em !important;
+  }
+
+  .fc .fc-view-harness {
+    height: auto !important;
+    min-height: 400px;
+  }
+
+  /* Event styling voor mobiel */
+  .calendar-event {
+    padding: 2px 4px;
+  }
+
+  .event-title {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .event-details {
+    display: none; /* Verberg details op mobiel */
+  }
+
+  /* Details panel voor mobiel */
+  .selected-speelpleinen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 1000;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .details-header {
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+  }
+
+  .details-content {
+    padding: 15px;
+  }
+
+  .info-grid {
+    gap: 12px;
+  }
+
+  .info-item {
+    font-size: 13px;
+  }
+}
+
+/* Extra kleine schermen */
+@media (max-width: 374px) {
+  .fc .fc-toolbar-title {
+    font-size: 1em !important;
+  }
+
+  .fc .fc-button {
+    padding: 4px 8px !important;
+    font-size: 0.8em !important;
+  }
+
+  .details-header h3 {
+    font-size: 1.1em;
+  }
+
+  .status-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
+/* Fix voor landscape mode op mobiel */
+@media (max-height: 500px) and (orientation: landscape) {
+  .calendar-container {
+    min-height: auto;
+  }
+
+  .selected-speelpleinen {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+.speelplein-details {
+  color: #333;
+}
+
+.speelplein-details h3 {
+  color: #6b7ff2;
+  margin: 0 0 15px 0;
+}
+
+.details-content {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.details-content p {
+  margin: 8px 0;
+}
+
+.details-actions {
+  margin-top: 15px;
+}
+
+.speelplein-card {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.speelplein-card h4 {
+  color: #6b7ff2;
+  margin: 0 0 10px 0;
+}
+
+.geen-speelpleinen {
+  text-align: center;
+  color: #666;
+}
+
+.geen-speelpleinen h3 {
+  color: #6b7ff2;
+  margin-bottom: 10px;
+}
+
+.event-date {
+  font-size: 11px;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+.event-capacity {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Verbeter de leesbaarheid van datums in de details */
+.info-item .info-value {
+  font-weight: 500;
+  color: #333;
+  word-break: keep-all;
+  white-space: nowrap;
+} 

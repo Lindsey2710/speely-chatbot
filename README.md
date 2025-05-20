@@ -1,3 +1,60 @@
+# Speelplein Chatbot Assistant
+
+Een interactieve chatbot voor speelpleinwerkingen die ouders helpt bij het vinden en inschrijven van activiteiten voor hun kinderen.
+
+## Features
+
+- 🔍 Zoeken op gemeente en leeftijd
+- 📝 Inschrijvingshulp
+- 👥 Contactinformatie
+- 📊 Beschikbare plaatsen checker
+- 💫 Interactieve suggesties
+
+## Configuratie
+
+### Bot Aanpassen
+
+De bot kan aangepast worden via `src/config/botConfig.js`:
+- Naam en avatar
+- Welkomstbericht
+- Beschikbare features
+- Data locatie
+
+### Data Structuur
+
+Excel bestand moet de volgende kolommen bevatten:
+- Speelplein (naam)
+- Gemeente
+- Leeftijdsgroep
+- Max_kinderen
+- Beschikbare_plaatsen
+- Inschrijvingslink
+- Contactpersoon
+
+## Installatie
+
+1. Clone de repository
+2. Installeer dependencies: `npm install`
+3. Plaats je Excel bestand in `public/data/`
+4. Start de applicatie: `npm start`
+
+## Gebruik
+
+De chatbot ondersteunt vragen over:
+- Speelpleinen in specifieke gemeentes
+- Beschikbaarheid voor leeftijdsgroepen
+- Inschrijvingsinformatie
+- Contactgegevens
+- Beschikbare plaatsen
+
+## Doorontwikkeling
+
+Geplande features:
+- Meertalige ondersteuning
+- Geavanceerde zoekopties
+- Activiteitenkalender
+- Wachtlijstbeheer
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
