@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/data/speelpleinen.xlsx",
+      "headers": {
+        "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  ]
+} 

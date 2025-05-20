@@ -30,17 +30,34 @@ function ChatWindow() {
   useEffect(() => {
     const loadExcelData = async () => {
       try {
+        console.log('Start loading Excel data...');
         const response = await fetch(botConfig.dataPath);
+        console.log('Fetch response:', response);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const arrayBuffer = await response.arrayBuffer();
+        console.log('Received array buffer');
+        
         const workbook = read(arrayBuffer, { type: 'array' });
+        console.log('Parsed workbook:', workbook.SheetNames);
+        
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const data = utils.sheet_to_json(worksheet);
+        console.log('Loaded data:', data);
+        
+        if (!data || data.length === 0) {
+          throw new Error('No data found in Excel file');
+        }
+        
         setSpeelpleinData(data);
       } catch (error) {
         console.error('Error loading Excel data:', error);
         setMessages(prev => [...prev, { 
-          text: "Sorry, er was een probleem met het laden van de speelplein data.", 
+          text: `Sorry, er was een probleem met het laden van de speelplein data: ${error.message}`, 
           isBot: true 
         }]);
       }
